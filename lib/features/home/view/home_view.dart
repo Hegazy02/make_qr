@@ -1,17 +1,16 @@
 import 'dart:developer';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:make_qr/core/extentions/media_query_extention.dart';
-
+import '../../../core/constants/translation.dart';
 import '../../../core/di/get_it.dart';
-import '../../home/view/qr_type_box.dart';
-import '../../main/view/widgets/custom_bottom_navigation_bar.dart';
-import '../../main/view/widgets/scanner_button.dart';
-import '../../main/view_model/main_cubit.dart';
+import 'widgets/custom_stack_header.dart';
+import 'widgets/qr_type_box.dart';
+
 import '../repo/home_repo.dart';
 import '../view_model/home_cubit.dart';
-import 'custom_stack.dart';
+import 'widgets/custom_stack.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -22,19 +21,9 @@ class HomeView extends StatelessWidget {
       create: (context) => HomeCubit(getIt<HomeRepo>()),
       child: BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
         return CustomStack(
-          positions: [
-            Positioned(
-              bottom: 0,
-              child: CustomBottomNavigationBar(
-                selectedIndex: context.read<MainCubit>().selectedIndex,
-              ),
-            ),
-            Positioned(
-              bottom: 20,
-              right: 50.w - 30.sp,
-              child: ScannerButton(onPressed: () {}),
-            ),
-          ],
+          header: CustomStackHeader(
+            data: Translation.createQr.tr(),
+          ),
           child: Column(children: [
             GridView.builder(
               padding: const EdgeInsets.symmetric(vertical: 10),

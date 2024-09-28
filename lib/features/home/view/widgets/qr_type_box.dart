@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/theme/app_font_styles.dart';
-import '../../../core/widgets/border_container.dart';
-import '../../main/model/qr_model.dart';
+import '../../../../core/theme/app_font_styles.dart';
+import '../../../../core/widgets/border_container.dart';
+import '../../../main/model/qr_model.dart';
 
 class QrTypeBox extends StatelessWidget {
   final QrModel qrModel;

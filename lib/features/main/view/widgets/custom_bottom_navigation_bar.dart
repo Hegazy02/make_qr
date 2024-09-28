@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:make_qr/core/extentions/media_query_extention.dart';
 
-import '../../../core/theme/app_colors.dart';
 import '../../view_model/main_cubit.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
@@ -15,19 +14,25 @@ class CustomBottomNavigationBar extends StatelessWidget {
         height: 50,
         width: 100.w,
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-        ),
+        decoration: const BoxDecoration(color: Colors.white, boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 5,
+            offset: Offset(0, -1),
+          ),
+        ]),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: List.generate(
               items.length,
               (index) => InkWell(
                     onTap: () {
-                      context.read<MainCubit>().selectView(index);
+                      if (index != items.length ~/ 2) {
+                        context.read<MainCubit>().selectView(index);
+                      }
                     },
                     child: Padding(
-                      padding: EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(10),
                       child: index == selectedIndex
                           ? items[index].activeIcon
                           : items[index].icon,
@@ -37,12 +42,16 @@ class CustomBottomNavigationBar extends StatelessWidget {
   }
 
   List items = [
-    const BottomNavigationBarItem(
-      icon: Icon(Icons.home),
-      activeIcon: Icon(
-        Icons.home,
-        size: 30,
-        color: primaryColor,
+    BottomNavigationBarItem(
+      icon: Image.asset(
+        'assets/icons/create_black_icon.png',
+        height: 30,
+        width: 30,
+      ),
+      activeIcon: Image.asset(
+        'assets/icons/create_icon.png',
+        height: 30,
+        width: 30,
       ),
     ),
     const BottomNavigationBarItem(
@@ -51,14 +60,16 @@ class CustomBottomNavigationBar extends StatelessWidget {
         color: Colors.white,
       ),
     ),
-    const BottomNavigationBarItem(
-      icon: Icon(
-        Icons.history,
+    BottomNavigationBarItem(
+      icon: Image.asset(
+        'assets/icons/history_black_icon.png',
+        height: 25,
+        width: 25,
       ),
-      activeIcon: Icon(
-        Icons.history,
-        color: primaryColor,
-        size: 30,
+      activeIcon: Image.asset(
+        'assets/icons/history_icon.png',
+        height: 25,
+        width: 25,
       ),
     ),
   ];

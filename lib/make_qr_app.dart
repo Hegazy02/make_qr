@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'core/di/get_it.dart';
 import 'core/extentions/my_media_query.dart';
 import 'core/theme/theming.dart';
-import 'main/repo/main_repo.dart';
-import 'main/view/main_view.dart';
-import 'main/view_model/main_cubit.dart';
+import 'features/main/repo/main_repo.dart';
+import 'features/main/view/main_view.dart';
+import 'features/main/view_model/main_cubit.dart';
 
 class MakeQrApp extends StatelessWidget {
   const MakeQrApp({super.key});

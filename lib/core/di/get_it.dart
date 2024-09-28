@@ -1,4 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:make_qr/features/home/repo/home_repo._impl.dart';
+import 'package:make_qr/features/home/repo/home_repo.dart';
 import 'package:make_qr/features/main/repo/main_repo.dart';
 import 'package:make_qr/features/main/repo/main_repo_impl.dart';
 
@@ -11,9 +13,12 @@ setupGetIt() {
       () => FirebaseExceptionHandler());
   getIt.registerLazySingleton<NetworkHelper>(() => NetworkHelper());
 
-  // home
+  // main
   getIt.registerLazySingleton<MainRepoImpl>(
       () => MainRepoImpl(getIt<NetworkHelper>()));
   getIt.registerLazySingleton<MainRepo>(() => getIt<MainRepoImpl>());
-  // exception
+  // home
+  getIt.registerLazySingleton<HomeRepoImpl>(
+      () => HomeRepoImpl(getIt<NetworkHelper>()));
+  getIt.registerLazySingleton<HomeRepo>(() => getIt<HomeRepoImpl>());
 }

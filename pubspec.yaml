@@ -41,6 +41,11 @@ dependencies:
   dio: ^5.7.0
   get_it: ^8.0.0
   easy_localization: ^3.0.7
+  pretty_qr_code: ^3.3.0
+  device_info_plus: ^10.1.2
+  mobile_scanner: ^5.2.3
+  image_picker: ^1.1.2
+  url_launcher: ^6.3.0
 
 dev_dependencies:
   flutter_test:

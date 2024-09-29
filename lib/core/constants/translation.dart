@@ -11,4 +11,5 @@ class Translation {
   static const String arabic = "arabic";
   static const String english = "english";
   static const String qrTypes = "qr-types";
+  static const String scanSomething = "scan-something";
 }

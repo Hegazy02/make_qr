@@ -6,6 +6,7 @@ import 'widgets/custom_drawer.dart';
 
 class MainView extends StatelessWidget {
   const MainView({super.key});
+  static const main = '/';
 
   @override
   Widget build(BuildContext context) {

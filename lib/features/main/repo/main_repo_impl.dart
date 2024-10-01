@@ -1,4 +1,4 @@
-import '../../core/apis/network_helper.dart';
+import '../../../core/apis/network_helper.dart';
 import 'main_repo.dart';
 
 class MainRepoImpl extends MainRepo {

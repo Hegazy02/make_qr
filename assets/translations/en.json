@@ -1,0 +1,18 @@
+{
+  "create-qr": "Create Qr",
+  "qr-types": "Qr Types",
+  "home": "Home",
+  "scan": "Scan",
+  "settings": "Settings",
+  "about": "About",
+  "history": "History",
+  "share": "Share",
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "scan-something": "Scan something",
+  "something-went-wrong": "Something went wrong",
+  "permission-denied": "permission denied",
+  "scanning-is-unsupported-on-this-device": "scanning is not supported on this device",
+  "couldn't-launch":"couldn't launch"
+}

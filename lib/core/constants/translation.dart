@@ -10,6 +10,11 @@ class Translation {
   static const String language = "language";
   static const String arabic = "arabic";
   static const String english = "english";
+  static const String somethingWentWrong = "something-went-wrong";
   static const String qrTypes = "qr-types";
   static const String scanSomething = "scan-something";
+  static const String permissionDenied = "permission-denied";
+  static const String scanningIsNotSupported =
+      "scanning-is-unsupported-on-this-device";
+  static const String couldntLaunch = "couldn't-launch";
 }

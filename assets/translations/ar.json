@@ -10,5 +10,9 @@
   "language": "اللغة",
   "english": "الانجليزية",
   "arabic": "العربية",
-  "scan-something": "امسح الرمز"
+  "scan-something": "امسح الرمز",
+  "something-went-wrong": "هناك خطأ ما",
+  "permission-denied": "لم يتم منح الاذن",
+  "scanning-is-unsupported-on-this-device": "المسح غير متوفر على هذاالجهاز",
+  "couldn't-launch": "لم يستطع تشغيل"
 }

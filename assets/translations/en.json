@@ -10,5 +10,9 @@
   "language": "Language",
   "english": "English",
   "arabic": "Arabic",
-  "scan-something": "Scan something"
+  "scan-something": "Scan something",
+  "something-went-wrong": "Something went wrong",
+  "permission-denied": "permission denied",
+  "scanning-is-unsupported-on-this-device": "scanning is not supported on this device",
+  "couldn't-launch":"couldn't launch"
 }

@@ -6,12 +6,15 @@ import 'package:make_qr/features/main/repo/main_repo_impl.dart';
 
 import '../apis/network_helper.dart';
 import '../helpers/exception_handlers/firebase_exception_handler.dart';
+import '../helpers/wifi_scanner.dart';
 
 final getIt = GetIt.instance;
 setupGetIt() {
   getIt.registerLazySingleton<FirebaseExceptionHandler>(
       () => FirebaseExceptionHandler());
+  //helpers
   getIt.registerLazySingleton<NetworkHelper>(() => NetworkHelper());
+  getIt.registerLazySingleton<WifiScanner>(() => WifiScanner());
 
   // main
   getIt.registerLazySingleton<MainRepoImpl>(

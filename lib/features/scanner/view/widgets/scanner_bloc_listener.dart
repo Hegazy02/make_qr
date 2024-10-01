@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,8 +18,12 @@ class ScannerBlocListener extends StatelessWidget {
         if (state is ScannerLoading) {
           context.showLoading();
         } else if (state is ScannerLoaded) {
-          context.hideLoading();
-          context.pop();
+          try {
+            context.hideLoading();
+            context.pop();
+          } catch (e) {
+            log("eeerr $e");
+          }
         } else if (state is ScannerError) {
           context.hideLoading();
           context.showError(state.message.tr());

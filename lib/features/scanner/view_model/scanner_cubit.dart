@@ -30,18 +30,13 @@ class ScannerCubit extends Cubit<ScannerState> {
       switch (qrCode.type) {
         case BarcodeType.url:
           //check if pdf url
-          if (true) {
+
+          if (qrCode.displayValue!.contains(".pdf") &&
+              await canLaunchUrl(Uri.parse(qrCode.displayValue!))) {
             WidgetsBinding.instance.addPostFrameCallback((_) {
               GoRouter.of(context).pushReplacementNamed(PdfUrlViewer.pdf,
-                  extra:
-                      "https://firebasestorage.googleapis.com/v0/b/darsly-3ec42.appspot.com/o/Abdelrhman%20Ibrahim_Flutter_Developer.pdf?alt=media&token=fac65bad-bdc6-40d4-82e6-2daf04a59cb3");
+                  extra: qrCode.displayValue);
             });
-            // if (qrCode.displayValue!.contains(".pdf") &&
-            //     await canLaunchUrl(Uri.parse(qrCode.displayValue!))) {
-            //   WidgetsBinding.instance.addPostFrameCallback((_) {
-            //     GoRouter.of(context).pushReplacementNamed(PdfUrlViewer.pdf,
-            //         extra: qrCode.displayValue);
-            //   });
           } else {
             launchURL(qrCode.displayValue!);
           }

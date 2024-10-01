@@ -7,7 +7,7 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../main/view/widgets/custom_bottom_navigation_bar.dart';
 import '../../../main/view/widgets/scanner_button.dart';
 import '../../../main/view_model/main_cubit.dart';
-import '../../../scanner/view/widgets/scanner_view.dart';
+import '../../../scanner/view/scanner_view.dart';
 
 class CustomStack extends StatelessWidget {
   final Widget? header;

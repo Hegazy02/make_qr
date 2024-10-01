@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:make_qr/core/constants/translation.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
 class ScannerErrorWidget extends StatelessWidget {
@@ -12,13 +14,13 @@ class ScannerErrorWidget extends StatelessWidget {
 
     switch (error.errorCode) {
       case MobileScannerErrorCode.controllerUninitialized:
-        errorMessage = 'Controller not ready.';
+        errorMessage = Translation.somethingWentWrong;
       case MobileScannerErrorCode.permissionDenied:
-        errorMessage = 'Permission denied';
+        errorMessage = Translation.permissionDenied;
       case MobileScannerErrorCode.unsupported:
-        errorMessage = 'Scanning is unsupported on this device';
+        errorMessage = Translation.scanningIsNotSupported;
       default:
-        errorMessage = 'Generic Error';
+        errorMessage = Translation.somethingWentWrong;
         break;
     }
 
@@ -33,7 +35,7 @@ class ScannerErrorWidget extends StatelessWidget {
               child: Icon(Icons.error, color: Colors.white),
             ),
             Text(
-              errorMessage,
+              errorMessage.tr(),
               style: const TextStyle(color: Colors.white),
             ),
             Text(

@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:make_qr/core/constants/translation.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-import 'scanned_barcode_label.dart';
-import 'scanner_button_widgets.dart';
-import 'scanner_error_widget.dart';
+import 'widgets/scanned_barcode_label.dart';
+import 'widgets/scanner_bloc_listener.dart';
+import 'widgets/scanner_button_widgets.dart';
+import 'widgets/scanner_error_widget.dart';
 
 class ScannerView extends StatefulWidget {
   const ScannerView({super.key});
@@ -33,55 +34,62 @@ class _ScannerViewState extends State<ScannerView> {
       appBar: AppBar(
         title: Text(Translation.scan.tr()),
       ),
-      body: Stack(
-        fit: StackFit.expand,
+      body: Column(
         children: [
-          Center(
-            child: MobileScanner(
-              fit: BoxFit.contain,
-              controller: controller,
-              scanWindow: scanWindow,
-              errorBuilder: (context, error, child) {
-                return ScannerErrorWidget(error: error);
-              },
-              overlayBuilder: (context, constraints) {
-                return Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: ScannedBarcodeLabel(controller: controller),
+          Expanded(
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                Center(
+                  child: MobileScanner(
+                    fit: BoxFit.contain,
+                    controller: controller,
+                    scanWindow: scanWindow,
+                    errorBuilder: (context, error, child) {
+                      return ScannerErrorWidget(error: error);
+                    },
+                    overlayBuilder: (context, constraints) {
+                      return Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: ScannedBarcodeLabel(controller: controller),
+                        ),
+                      );
+                    },
                   ),
-                );
-              },
-            ),
-          ),
-          ValueListenableBuilder(
-            valueListenable: controller,
-            builder: (context, value, child) {
-              if (!value.isInitialized ||
-                  !value.isRunning ||
-                  value.error != null) {
-                return const SizedBox();
-              }
+                ),
+                ValueListenableBuilder(
+                  valueListenable: controller,
+                  builder: (context, value, child) {
+                    if (!value.isInitialized ||
+                        !value.isRunning ||
+                        value.error != null) {
+                      return const SizedBox();
+                    }
 
-              return CustomPaint(
-                painter: ScannerOverlay(scanWindow: scanWindow),
-              );
-            },
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ToggleFlashlightButton(controller: controller),
-                  SwitchCameraButton(controller: controller),
-                ],
-              ),
+                    return CustomPaint(
+                      painter: ScannerOverlay(scanWindow: scanWindow),
+                    );
+                  },
+                ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ToggleFlashlightButton(controller: controller),
+                        SwitchCameraButton(controller: controller),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
+          const ScannerBlocListener(),
         ],
       ),
     );

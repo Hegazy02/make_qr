@@ -21,11 +21,11 @@ class ScannedBarcodeLabel extends StatelessWidget {
       builder: (context, snapshot) {
         final scannedBarcodes = snapshot.data?.barcodes ?? [];
         if (scannedBarcodes.isNotEmpty) {
+          controller.dispose();
           context
               .read<ScannerCubit>()
-              .runQrCode(controller, scannedBarcodes.first);
+              .runQrCode(scannedBarcodes.first, context);
         }
-        // if (scannedBarcodes.isEmpty) {
         return Text(
           Translation.scanSomething.tr(),
           overflow: TextOverflow.fade,

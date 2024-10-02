@@ -14,5 +14,7 @@
   "something-went-wrong": "Something went wrong",
   "permission-denied": "permission denied",
   "scanning-is-unsupported-on-this-device": "scanning is not supported on this device",
-  "couldn't-launch":"couldn't launch"
+  "couldn't-launch": "couldn't launch",
+  "link": "Link",
+  "text": "Text"
 }

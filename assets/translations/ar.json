@@ -14,5 +14,7 @@
   "something-went-wrong": "هناك خطأ ما",
   "permission-denied": "لم يتم منح الاذن",
   "scanning-is-unsupported-on-this-device": "المسح غير متوفر على هذاالجهاز",
-  "couldn't-launch": "لم يستطع تشغيل"
+  "couldn't-launch": "لم يستطع تشغيل",
+  "link": "رابط",
+  "text": "نص"
 }

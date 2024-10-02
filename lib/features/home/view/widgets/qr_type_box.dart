@@ -1,5 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/constants/translation.dart';
+import '../../../../core/enums/qr_type.dart';
 import '../../../../core/theme/app_font_styles.dart';
 import '../../../../core/widgets/border_container.dart';
 import '../../../main/model/qr_model.dart';
@@ -32,7 +35,11 @@ class QrTypeBox extends StatelessWidget {
                     const Icon(Icons.error, size: 30),
               ),
               const SizedBox(height: 5),
-              Text(qrModel.type.name, style: textStyle14Bold),
+              Text(
+                  qrModel.type == QrType.url
+                      ? Translation.link.tr()
+                      : qrModel.type.name.tr(),
+                  style: textStyle14Bold),
             ],
           ),
         ),

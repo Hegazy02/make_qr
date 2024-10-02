@@ -10,6 +10,7 @@ class Translation {
   static const String language = "language";
   static const String arabic = "arabic";
   static const String english = "english";
+  static const String link = "link";
   static const String somethingWentWrong = "something-went-wrong";
   static const String qrTypes = "qr-types";
   static const String scanSomething = "scan-something";

@@ -3,8 +3,10 @@ import 'dart:developer';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../../core/constants/translation.dart';
 import '../../../core/di/get_it.dart';
+import '../../main/model/qr_model.dart';
 import 'widgets/custom_stack_header.dart';
 import 'widgets/qr_type_box.dart';
 
@@ -35,9 +37,12 @@ class HomeView extends StatelessWidget {
                 childAspectRatio: 1,
               ),
               itemBuilder: (context, index) => QrTypeBox(
-                qrModel: context.read<HomeCubit>().qrTypes[index],
+                qrModel: context.read<HomeCubit>().qrTypes[index]['qrModel']
+                    as QrModel,
                 onTap: () {
-                  log("sssxzxs");
+                  GoRouter.of(context).pushNamed(
+                    context.read<HomeCubit>().qrTypes[index]['route'] as String,
+                  );
                 },
               ),
             )

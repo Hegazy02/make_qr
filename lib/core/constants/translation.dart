@@ -18,4 +18,9 @@ class Translation {
   static const String scanningIsNotSupported =
       "scanning-is-unsupported-on-this-device";
   static const String couldntLaunch = "couldn't-launch";
+  static const String createQrLink = "create-link-qr";
+  static const String addLink = "add-link";
+  static const String invalidLink = "invalid-link";
+  static const String great = "great";
+  static const String backToHome = "back-to-home";
 }

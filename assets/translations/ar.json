@@ -16,5 +16,10 @@
   "scanning-is-unsupported-on-this-device": "المسح غير متوفر على هذاالجهاز",
   "couldn't-launch": "لم يستطع تشغيل",
   "link": "رابط",
-  "text": "نص"
+  "text": "نص",
+  "create-link-qr": "انشاء رمز لرابط",
+  "add-link": "اضف رابط",
+  "invalid-link": "رابط غير صالح",
+  "great": "مبروك!",
+  "back-to-home": "العودة للصفحة الرئيسية"
 }

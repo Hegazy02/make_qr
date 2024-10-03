@@ -16,5 +16,10 @@
   "scanning-is-unsupported-on-this-device": "scanning is not supported on this device",
   "couldn't-launch": "couldn't launch",
   "link": "Link",
-  "text": "Text"
+  "text": "Text",
+  "create-link-qr": "Create link Qr",
+  "add-link": "Add Link",
+  "invalid-link": "Invalid link",
+  "great": "Great!",
+  "back-to-home": "Back to home"
 }

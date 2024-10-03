@@ -57,6 +57,7 @@
 	<string>This app needs photos access to get QR code from photo library</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need your location to provide better services.</string>
-
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app needs to store images in the phone gallery to share QR code</string>
 	</dict>
 </plist>

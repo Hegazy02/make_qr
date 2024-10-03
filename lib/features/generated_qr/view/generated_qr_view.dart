@@ -2,15 +2,16 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:make_qr/core/constants/translation.dart';
 import 'package:make_qr/core/extentions/media_query_extention.dart';
-import 'package:make_qr/features/generated_qr/view_model/generated_qr_cubit.dart';
+
 import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:svg_flutter/svg.dart';
 import 'package:screenshot/screenshot.dart';
 
 import '../../../../core/widgets/custom_button.dart';
+import '../../../core/constants/translation.dart';
 import '../../main/view/main_view.dart';
+import '../view_model/generated_qr_cubit.dart';
 
 class GeneratedQrView extends StatelessWidget {
   const GeneratedQrView({super.key});
@@ -34,11 +35,6 @@ class GeneratedQrView extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    // Text(
-                    //   Translation.great.tr(),
-                    //   style: textStyle16Bold,
-                    // ),
-                    // const SizedBox(height: 10),
                     SvgPicture.asset(
                       "assets/svgs/success.svg",
                       width: 60.w,

@@ -1,4 +1,4 @@
-package com.example.make_qr
+package com.sinai_dev.make_qr
 
 import io.flutter.embedding.android.FlutterActivity
 

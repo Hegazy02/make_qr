@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CreateLinkQrWidget extends StatelessWidget {
-  const CreateLinkQrWidget({super.key});
+class GeneratedQrWidget extends StatelessWidget {
+  const GeneratedQrWidget({super.key});
 
 
   @override

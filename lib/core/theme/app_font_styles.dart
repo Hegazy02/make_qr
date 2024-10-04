@@ -9,6 +9,10 @@ TextStyle textStyle14Bold = TextStyle(
   fontSize: 14.sp,
   fontWeight: FontWeight.bold,
 );
+TextStyle textStyle12Bold = TextStyle(
+  fontSize: 12.sp,
+  fontWeight: FontWeight.bold,
+);
 TextStyle textStyle16Bold = TextStyle(
   fontSize: 16.sp,
   fontWeight: FontWeight.bold,

@@ -2,9 +2,12 @@ import '../../constants/firebase_error_messages.dart';
 import 'exception_handler.dart';
 
 class FirebaseExceptionHandler extends ExceptionHandler {
+  String errorMessage;
+
+  FirebaseExceptionHandler({this.errorMessage = ''}) : super();
   @override
-  String generateExceptionMessage(exceptionCode) {
-    String errorMessage;
+  FirebaseExceptionHandler generateExceptionMessage(String exceptionCode) {
+    final String errorMessage;
     switch (exceptionCode) {
       case FirebaseErrorMessages.invalidCredentials:
         errorMessage = FirebaseErrorMessages.invalidCredentials;
@@ -13,6 +16,6 @@ class FirebaseExceptionHandler extends ExceptionHandler {
         errorMessage = FirebaseErrorMessages.unknown;
     }
 
-    return errorMessage;
+    return FirebaseExceptionHandler(errorMessage: errorMessage);
   }
 }

@@ -50,6 +50,11 @@ dependencies:
   wifi_scan: ^0.4.1+1
   wifi_iot: ^0.3.19+1
   geolocator: ^13.0.1
+  svg_flutter: ^0.0.1
+  share_plus: ^10.0.2
+  screenshot: ^3.0.0
+  dartz: ^0.10.1
+  firebase_core: ^3.6.0
 
 dev_dependencies:
   flutter_test:
@@ -77,6 +82,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/translations/
+    - assets/svgs/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

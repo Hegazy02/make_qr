@@ -16,5 +16,15 @@
   "scanning-is-unsupported-on-this-device": "scanning is not supported on this device",
   "couldn't-launch": "couldn't launch",
   "link": "Link",
-  "text": "Text"
+  "text": "Text",
+  "create-link-qr": "Create link Qr",
+  "add-link": "Add Link",
+  "invalid-link": "Invalid link",
+  "great": "Great!",
+  "back-to-home": "Back to home",
+  "image": "Image",
+  "create-image-qr": "Create image Qr",
+  "edit": "Edit",
+  "select-an-image": "Select an image",
+    "press-on-image-icon-to-select-an-image-first": "Press on image icon to select an image first"
 }

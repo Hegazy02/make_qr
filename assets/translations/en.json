@@ -21,5 +21,10 @@
   "add-link": "Add Link",
   "invalid-link": "Invalid link",
   "great": "Great!",
-  "back-to-home": "Back to home"
+  "back-to-home": "Back to home",
+  "image": "Image",
+  "create-image-qr": "Create image Qr",
+  "edit": "Edit",
+  "select-an-image": "Select an image",
+    "press-on-image-icon-to-select-an-image-first": "Press on image icon to select an image first"
 }

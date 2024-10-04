@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:make_qr/core/theme/app_colors.dart';
+import 'package:make_qr/core/theme/app_font_styles.dart';
 
 extension Dialog on BuildContext {
   void showLoading() {
@@ -14,7 +16,13 @@ extension Dialog on BuildContext {
     showDialog(
         context: this,
         builder: (_) => AlertDialog(
-              content: Text(message ?? "Something went wrong"),
+              backgroundColor: Colors.white,
+              alignment: Alignment.center,
+              content: Text(
+                message ?? "Something went wrong",
+                style: textStyle12Bold.copyWith(color: appGrey),
+                textAlign: TextAlign.center,
+              ),
             ));
   }
 

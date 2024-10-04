@@ -21,5 +21,10 @@
   "add-link": "اضف رابط",
   "invalid-link": "رابط غير صالح",
   "great": "مبروك!",
-  "back-to-home": "العودة للصفحة الرئيسية"
+  "back-to-home": "العودة للصفحة الرئيسية",
+  "image": "صورة",
+  "create-image-qr": "انشاء رمز لصورة",
+  "edit": "تعديل",
+  "select-an-image": "حدد صورة",
+  "press-on-image-icon-to-select-an-image-first": "اضغط على علامة الصورة لتحديد صورة اولا"
 }

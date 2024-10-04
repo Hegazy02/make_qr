@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "935394903768",
+    "project_id": "make-qr-d219a",
+    "storage_bucket": "make-qr-d219a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:935394903768:android:e86a15a00b16c6218379ad",
+        "android_client_info": {
+          "package_name": "com.sinai_dev.make_qr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2wDgOH-96vcef02dgL2O3PWK3fhH7m90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

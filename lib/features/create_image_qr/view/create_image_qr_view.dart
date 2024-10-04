@@ -44,7 +44,7 @@ class CreateImageQrView extends StatelessWidget {
               ),
               const SizedBox(height: 40),
               CustomButton(
-                  onPressed: cubit.createQr, title: Translation.createQr),
+                  onPressed: cubit.generateQr, title: Translation.createQr),
               const CreateImageQrBlocListener()
             ]),
           ),

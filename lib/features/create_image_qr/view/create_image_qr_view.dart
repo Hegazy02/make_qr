@@ -40,6 +40,7 @@ class CreateImageQrView extends StatelessWidget {
                     : ImageWithGreyContainer(
                         imagePath: "assets/icons/upload_image.png",
                         onTap: cubit.selectImage,
+                        text: Translation.selectAnImage,
                       ),
               ),
               const SizedBox(height: 40),

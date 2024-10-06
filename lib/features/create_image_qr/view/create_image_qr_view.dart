@@ -5,6 +5,7 @@ import 'package:make_qr/core/extentions/media_query_extention.dart';
 import 'package:svg_flutter/svg.dart';
 
 import '../../../core/constants/translation.dart';
+import '../../../core/enums/status_enum.dart';
 import '../../../core/widgets/custom_app_bar.dart';
 import '../../../core/widgets/custom_button.dart';
 import '../view_model/create_image_qr_cubit.dart';
@@ -32,17 +33,31 @@ class CreateImageQrView extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               BlocBuilder<CreateImageQrCubit, CreateImageQrState>(
-                builder: (context, state) => cubit.imageFile != null
-                    ? SelectedImage(
-                        imageFile: cubit.imageFile!,
-                        onTap: cubit.selectImage,
-                      )
-                    : ImageWithGreyContainer(
-                        imagePath: "assets/icons/upload_image.png",
-                        onTap: cubit.selectImage,
-                        text: Translation.selectAnImage,
-                      ),
-              ),
+                  builder: (context, state) {
+                if (state.imageStatus == Status.loading) {
+                  return SizedBox(
+                      width: 60.w,
+                      height: 60.w,
+                      child: const Center(child: CircularProgressIndicator()));
+                } else if (state.imageStatus == Status.success) {
+                  return SelectedImage(
+                    imageFile: cubit.imageFile!,
+                    onTap: cubit.selectImage,
+                  );
+                } else if (state.imageStatus == Status.error) {
+                  return ImageWithGreyContainer(
+                    imagePath: "assets/icons/error_icon.png",
+                    onTap: cubit.selectImage,
+                    text: Translation.selectAnImage,
+                  );
+                } else {
+                  return ImageWithGreyContainer(
+                    imagePath: "assets/icons/upload_image.png",
+                    onTap: cubit.selectImage,
+                    text: Translation.selectAnImage,
+                  );
+                }
+              }),
               const SizedBox(height: 40),
               CustomButton(
                   onPressed: cubit.generateQr, title: Translation.createQr),

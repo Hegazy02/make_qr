@@ -34,4 +34,6 @@ class Translation {
   static const String selectAnImage = "select-an-image";
   static const String pressOnImageIconToSelectAnImageFirst =
       "press-on-image-icon-to-select-an-image-first";
+  static const String pressOnFileIconToSelectAnFileFirst =
+      "press-on-file-icon-to-select-an-file-first";
 }

@@ -30,5 +30,6 @@
   "create-pdf-qr": "انشاء رمز لـPdf",
   "select-a-file": "حدد ملف",
   "no-file-selected": "لم يتم تحديد ملف",
-  "file not in pdf format or corrupted": "الملف ليس في صيغة PDF او به مشكلة"
+  "file not in pdf format or corrupted": "الملف ليس في صيغة PDF او به مشكلة",
+  "press-on-file-icon-to-select-an-file-first": "اضغط على علامة الملف لتحديد ملف اولا"
 }

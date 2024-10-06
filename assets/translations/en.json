@@ -30,5 +30,6 @@
   "create-pdf-qr": "Create Pdf Qr",
   "select-a-file": "Select a file",
   "no-file-selected": "No file selected",
-  "file not in pdf format or corrupted": "File not in pdf format or corrupted"
+  "file not in pdf format or corrupted": "File not in pdf format or corrupted",
+  "press-on-file-icon-to-select-an-file-first": "Press on file icon to select an file first"
 }

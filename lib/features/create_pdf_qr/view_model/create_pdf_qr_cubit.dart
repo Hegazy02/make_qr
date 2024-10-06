@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'dart:ui';
 
@@ -22,29 +23,59 @@ class CreatePdfQrCubit extends Cubit<CreatePdfQrState> {
     final File? selectedFile = await getIt<FilePickerService>().pickFile();
     if (selectedFile != null) {
       this.selectedFile = selectedFile;
+      await setPdfThumbnail();
+    } else if (this.selectedFile == null && !isClosed) {
+      emit(state.copyWith(
+          fileStatus: Status.error, error: Translation.noFileSelected));
+    } else {
+      emit(state.copyWith(fileStatus: Status.success));
     }
-    await setPdfThumbnail();
   }
 
   setPdfThumbnail() async {
-    if (selectedFile != null) {
-      final result =
-          await create_pdf_qrRepo.getPdfThumbnail(selectedFile!.path);
+    final result = await create_pdf_qrRepo.getPdfThumbnail(selectedFile!.path);
+    result.fold(
+      (error) {
+        emit(state.copyWith(
+            fileStatus: Status.error, error: error.errorMessage));
+      },
+      (data) {
+        selectedPdfThumbnail = data;
+        emit(state.copyWith(fileStatus: Status.success));
+      },
+    );
+  }
+
+  uploadFile() async {
+    try {
+      emit(state.copyWith(status: Status.loading));
+      if (selectedFile == null) {
+        emit(state.copyWith(
+            status: Status.error,
+            error: Translation.pressOnFileIconToSelectAnFileFirst));
+
+        return;
+      }
+
+      final result = await create_pdf_qrRepo.uploadFile(selectedFile!);
       result.fold(
         (error) {
-          emit(state.copyWith(
-              fileStatus: Status.error, error: error.errorMessage));
+          emit(state.copyWith(status: Status.error, error: error.errorMessage));
         },
         (data) {
-          selectedPdfThumbnail = data;
-          emit(state.copyWith(fileStatus: Status.success));
+          fileUrl = data;
+          log("fileUrl $fileUrl");
         },
       );
-    } else {
-      emit(state.copyWith(
-          fileStatus: Status.error, error: Translation.noFileSelected));
+    } catch (e) {
+      emit(state.copyWith(status: Status.error, error: e.toString()));
     }
   }
 
-  Future<void> generateQr() async {}
+  Future<void> generateQr() async {
+    await uploadFile();
+    if (fileUrl != null) {
+      emit(state.copyWith(status: Status.success));
+    }
+  }
 }

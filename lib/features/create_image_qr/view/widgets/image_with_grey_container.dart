@@ -9,9 +9,11 @@ import '../../../../core/theme/app_font_styles.dart';
 class ImageWithGreyContainer extends StatelessWidget {
   final String imagePath;
   final void Function()? onTap;
+  final String text;
   const ImageWithGreyContainer({
     super.key,
     required this.imagePath,
+    required this.text,
     this.onTap,
   });
 
@@ -37,7 +39,7 @@ class ImageWithGreyContainer extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Text(
-                Translation.selectAnImage.tr(),
+                text.tr(),
                 style: textStyle14Bold.copyWith(color: appGrey),
               )
             ],

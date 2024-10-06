@@ -1,9 +1,12 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:make_qr/core/di/get_it.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:path/path.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../../core/apis/network_helper.dart';
+import '../../../core/di/get_it.dart';
 import '../../../core/helpers/exception_handlers/firebase_exception_handler.dart';
 import 'create_image_qr_repo.dart';
 
@@ -14,9 +17,14 @@ class CreateImageQrRepoImpl extends CreateImageQrRepo {
   Future<Either<FirebaseExceptionHandler, String>> uploadImage(
       File image) async {
     try {
-      //upload image using firebase storage
+      final fileName = basename(image.path);
+      final destination = 'images/${fileName}_${const Uuid().v1()}';
 
-      return Right("response");
+      final ref = FirebaseStorage.instance.ref(destination);
+      await ref.putFile(image);
+      final imageUrl = await ref.getDownloadURL();
+
+      return Right(imageUrl);
     } catch (e) {
       return Left(getIt<FirebaseExceptionHandler>()
           .generateExceptionMessage(e.toString()));

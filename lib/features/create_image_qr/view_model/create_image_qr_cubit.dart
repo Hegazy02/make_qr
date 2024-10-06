@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,16 +41,18 @@ class CreateImageQrCubit extends Cubit<CreateImageQrState> {
         },
         (data) {
           imageUrl = data;
+          log("imageUrl $imageUrl");
         },
       );
     } catch (e) {
       emit(state.copyWith(status: Status.error, error: e.toString()));
     }
-    emit(state.copyWith(status: Status.success));
   }
 
-  createQr() async {
+  generateQr() async {
     await uploadImage();
-    if (imageUrl != null) {}
+    if (imageUrl != null) {
+      emit(state.copyWith(status: Status.success));
+    }
   }
 }

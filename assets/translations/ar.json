@@ -26,5 +26,9 @@
   "create-image-qr": "انشاء رمز لصورة",
   "edit": "تعديل",
   "select-an-image": "حدد صورة",
-  "press-on-image-icon-to-select-an-image-first": "اضغط على علامة الصورة لتحديد صورة اولا"
+  "press-on-image-icon-to-select-an-image-first": "اضغط على علامة الصورة لتحديد صورة اولا",
+  "create-pdf-qr": "انشاء رمز لـPdf",
+  "select-a-file": "حدد ملف",
+  "no-file-selected": "لم يتم تحديد ملف",
+  "file not in pdf format or corrupted": "الملف ليس في صيغة PDF او به مشكلة"
 }

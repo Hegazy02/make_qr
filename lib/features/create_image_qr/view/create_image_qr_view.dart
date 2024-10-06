@@ -40,11 +40,12 @@ class CreateImageQrView extends StatelessWidget {
                     : ImageWithGreyContainer(
                         imagePath: "assets/icons/upload_image.png",
                         onTap: cubit.selectImage,
+                        text: Translation.selectAnImage,
                       ),
               ),
               const SizedBox(height: 40),
               CustomButton(
-                  onPressed: cubit.createQr, title: Translation.createQr),
+                  onPressed: cubit.generateQr, title: Translation.createQr),
               const CreateImageQrBlocListener()
             ]),
           ),

@@ -26,5 +26,9 @@
   "create-image-qr": "Create image Qr",
   "edit": "Edit",
   "select-an-image": "Select an image",
-    "press-on-image-icon-to-select-an-image-first": "Press on image icon to select an image first"
+  "press-on-image-icon-to-select-an-image-first": "Press on image icon to select an image first",
+  "create-pdf-qr": "Create Pdf Qr",
+  "select-a-file": "Select a file",
+  "no-file-selected": "No file selected",
+  "file not in pdf format or corrupted": "File not in pdf format or corrupted"
 }

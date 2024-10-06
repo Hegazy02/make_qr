@@ -8,7 +8,7 @@ class FirebaseExceptionHandler extends ExceptionHandler {
 
   FirebaseExceptionHandler({this.errorMessage = ''}) : super();
   @override
-  FirebaseExceptionHandler generateExceptionMessage(String exceptionCode) {
+  FirebaseExceptionHandler generateExceptionMessage(String? exceptionCode) {
     log("exceptionCode $exceptionCode");
     final String errorMessage;
     switch (exceptionCode) {

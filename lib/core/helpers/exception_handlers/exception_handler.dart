@@ -1,3 +1,3 @@
 abstract class ExceptionHandler {
-  ExceptionHandler generateExceptionMessage(String exceptionCode);
+  ExceptionHandler generateExceptionMessage(String? exceptionCode);
 }

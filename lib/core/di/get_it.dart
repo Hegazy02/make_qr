@@ -8,8 +8,11 @@ import '../../features/create_image_qr/repo/create_image_qr_repo.dart';
 import '../../features/create_image_qr/repo/create_image_qr_repo_impl.dart';
 import '../../features/create_link_qr/repo/create_link_qr_repo.dart';
 import '../../features/create_link_qr/repo/create_link_qr_repo_impl.dart';
+import '../../features/create_pdf_qr/repo/create_pdf_qr_repo.dart';
+import '../../features/create_pdf_qr/repo/create_pdf_qr_repo_impl.dart';
 import '../apis/network_helper.dart';
 import '../helpers/exception_handlers/firebase_exception_handler.dart';
+import '../helpers/exception_handlers/service_exception_handler.dart';
 import '../helpers/files_pickers.dart';
 import '../helpers/wifi_scanner.dart';
 
@@ -17,6 +20,8 @@ final getIt = GetIt.instance;
 setupGetIt() {
   getIt.registerLazySingleton<FirebaseExceptionHandler>(
       () => FirebaseExceptionHandler());
+  getIt.registerLazySingleton<ServiceExceptionHandler>(
+      () => ServiceExceptionHandler(errorMessage: ''));
   //helpers
   getIt.registerLazySingleton<NetworkHelper>(() => NetworkHelper());
   getIt.registerLazySingleton<WifiScanner>(() => WifiScanner());
@@ -40,4 +45,9 @@ setupGetIt() {
       () => CreateImageQrRepoImpl(getIt<NetworkHelper>()));
   getIt.registerLazySingleton<CreateImageQrRepo>(
       () => getIt<CreateImageQrRepoImpl>());
+  // create pdf qr
+  getIt.registerLazySingleton<CreatePdfQrRepoImpl>(
+      () => CreatePdfQrRepoImpl(getIt<NetworkHelper>()));
+  getIt.registerLazySingleton<CreatePdfQrRepo>(
+      () => getIt<CreatePdfQrRepoImpl>());
 }

@@ -10,8 +10,13 @@ class Translation {
   static const String language = "language";
   static const String arabic = "arabic";
   static const String english = "english";
+  static const String selectAFile = "select-a-file";
   static const String link = "link";
   static const String edit = "edit";
+  static const String fileNotInPDFFormatOrCorrupted =
+      "file not in pdf format or corrupted";
+  static const String noFileSelected = "no-file-selected";
+  static const String createPdfQr = "create-pdf-qr";
   static const String somethingWentWrong = "something-went-wrong";
   static const String qrTypes = "qr-types";
   static const String scanSomething = "scan-something";

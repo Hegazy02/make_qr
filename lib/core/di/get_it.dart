@@ -10,6 +10,8 @@ import '../../features/create_link_qr/repo/create_link_qr_repo.dart';
 import '../../features/create_link_qr/repo/create_link_qr_repo_impl.dart';
 import '../../features/create_pdf_qr/repo/create_pdf_qr_repo.dart';
 import '../../features/create_pdf_qr/repo/create_pdf_qr_repo_impl.dart';
+import '../../features/history/repo/history_repo.dart';
+import '../../features/history/repo/history_repo_impl.dart';
 import '../apis/network_helper.dart';
 import '../helpers/exception_handlers/firebase_exception_handler.dart';
 import '../helpers/exception_handlers/service_exception_handler.dart';
@@ -50,4 +52,8 @@ setupGetIt() {
       () => CreatePdfQrRepoImpl(getIt<NetworkHelper>()));
   getIt.registerLazySingleton<CreatePdfQrRepo>(
       () => getIt<CreatePdfQrRepoImpl>());
+  // History
+  getIt.registerLazySingleton<HistoryRepoImpl>(
+      () => HistoryRepoImpl(getIt<NetworkHelper>()));
+  getIt.registerLazySingleton<HistoryRepo>(() => getIt<HistoryRepoImpl>());
 }

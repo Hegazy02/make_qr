@@ -5,7 +5,7 @@
   "scan": "مسح",
   "settings": "الاعدادات",
   "about": "عنا",
-  "history": "التاريخ",
+  "history": "عمليات سابقة",
   "share": "مشاركة",
   "language": "اللغة",
   "english": "الانجليزية",
@@ -16,6 +16,8 @@
   "scanning-is-unsupported-on-this-device": "المسح غير متوفر على هذاالجهاز",
   "couldn't-launch": "لم يستطع تشغيل",
   "link": "رابط",
+  "no-history": "لا توجد عمليات سابقة",
+  "url": "رابط",
   "text": "نص",
   "create-link-qr": "انشاء رمز لرابط",
   "add-link": "اضف رابط",
@@ -31,5 +33,6 @@
   "select-a-file": "حدد ملف",
   "no-file-selected": "لم يتم تحديد ملف",
   "file not in pdf format or corrupted": "الملف ليس في صيغة PDF او به مشكلة",
-  "press-on-file-icon-to-select-an-file-first": "اضغط على علامة الملف لتحديد ملف اولا"
+  "press-on-file-icon-to-select-an-file-first": "اضغط على علامة الملف لتحديد ملف اولا",
+  "no-title": "بدون عنوان"
 }

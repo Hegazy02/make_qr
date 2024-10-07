@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:make_qr/core/enums/status_enum.dart';
@@ -24,10 +22,15 @@ class CreateLinkQrCubit extends Cubit<CreateLinkQrState> {
           data: linkController.text,
           title: titleController.text.isEmpty ? null : titleController.text);
       await saveQrModel(qrModel);
-      linkController.clear();
+      clearControllers();
 
       emit(state.copyWith(status: Status.success));
     }
+  }
+
+  clearControllers() {
+    linkController.clear();
+    titleController.clear();
   }
 
   saveQrModel(QrModel qrModel) async {

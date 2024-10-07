@@ -38,7 +38,12 @@ class CreateLinkQrView extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     CustomTextField(
-                      autofocus: true,
+                      controller:
+                          context.read<CreateLinkQrCubit>().titleController,
+                      hintText: Translation.addTitle.tr(),
+                    ),
+                    const SizedBox(height: 10),
+                    CustomTextField(
                       controller:
                           context.read<CreateLinkQrCubit>().linkController,
                       hintText: Translation.addLink.tr(),

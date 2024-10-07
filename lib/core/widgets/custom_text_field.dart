@@ -15,7 +15,7 @@ class CustomTextField extends StatelessWidget {
       this.validator,
       this.keyboardType,
       this.onChanged,
-      this.autofocus = true});
+      this.autofocus = false});
 
   @override
   Widget build(BuildContext context) {

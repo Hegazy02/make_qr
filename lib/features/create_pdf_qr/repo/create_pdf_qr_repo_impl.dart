@@ -1,12 +1,15 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:dartz/dartz.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
 import 'package:pdf_render/pdf_render.dart';
-
+import 'package:path/path.dart';
+import 'package:uuid/uuid.dart';
 import '../../../core/apis/network_helper.dart';
-import '../../../core/constants/translation.dart';
 import '../../../core/di/get_it.dart';
+import '../../../core/helpers/exception_handlers/firebase_exception_handler.dart';
 import '../../../core/helpers/exception_handlers/service_exception_handler.dart';
 import 'create_pdf_qr_repo.dart';
 import 'dart:ui';
@@ -34,6 +37,24 @@ class CreatePdfQrRepoImpl extends CreatePdfQrRepo {
     } catch (error) {
       return Left(getIt<ServiceExceptionHandler>()
           .generateExceptionMessage(error.toString()));
+    }
+  }
+
+  @override
+  Future<Either<FirebaseExceptionHandler, String>> uploadFile(File file) async {
+    try {
+      final fileName = basename(file.path);
+      final destination = 'files/${fileName}_${const Uuid().v1()}';
+      Reference ref = FirebaseStorage.instance.ref().child(destination);
+      UploadTask uploadTask = ref.putFile(file);
+
+      String fileUrl =
+          await uploadTask.then((task) => task.ref.getDownloadURL());
+      return Right(fileUrl);
+    } catch (e) {
+      log("uploadFile error : $e");
+      return Left(getIt<FirebaseExceptionHandler>()
+          .generateExceptionMessage(e.toString()));
     }
   }
 }

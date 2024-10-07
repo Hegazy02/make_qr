@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:make_qr/core/constants/translation.dart';
 import 'package:make_qr/core/di/get_it.dart';
+import 'package:mime/mime.dart';
+
 import '../../../core/enums/status_enum.dart';
 import '../../../core/helpers/files_pickers.dart';
 import '../repo/create_image_qr_repo.dart';
@@ -19,8 +21,22 @@ class CreateImageQrCubit extends Cubit<CreateImageQrState> {
 
   selectImage() async {
     emit(state.copyWith(imageStatus: Status.loading));
-    imageFile = await getIt<FilePickerService>().pickImage();
-    emit(state.copyWith(imageStatus: Status.success));
+    final File? imageFile = await getIt<FilePickerService>().pickImage();
+
+    if (imageFile != null) {
+      this.imageFile = imageFile;
+      if (isImage(this.imageFile!.path)) {
+        emit(state.copyWith(imageStatus: Status.success));
+      } else {
+        emit(state.copyWith(
+            imageStatus: Status.error, error: Translation.selectAnImage));
+      }
+    } else if (this.imageFile != null && isImage(this.imageFile!.path)) {
+      emit(state.copyWith(imageStatus: Status.success));
+    } else {
+      emit(state.copyWith(
+          imageStatus: Status.error, error: Translation.selectAnImage));
+    }
   }
 
   uploadImage() async {
@@ -47,6 +63,11 @@ class CreateImageQrCubit extends Cubit<CreateImageQrState> {
     } catch (e) {
       emit(state.copyWith(status: Status.error, error: e.toString()));
     }
+  }
+
+  bool isImage(String path) {
+    final mimeType = lookupMimeType(path);
+    return mimeType != null && mimeType.startsWith('image/');
   }
 
   generateQr() async {

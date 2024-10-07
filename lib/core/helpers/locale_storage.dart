@@ -10,19 +10,19 @@ class LocaleStorage {
     return await _storage.read(key: key);
   }
 
-  Future<void> set(String key, String value) async {
+  static Future<void> set(String key, String value) async {
     await _storage.write(key: key, value: value);
   }
 
-  Future<void> delete(String key) async {
+  static Future<void> delete(String key) async {
     await _storage.delete(key: key);
   }
 
-  Future<bool> has(String key) async {
+  static Future<bool> has(String key) async {
     return await _storage.containsKey(key: key);
   }
 
-  Future<void> clear() async {
+  static Future<void> clear() async {
     await _storage.deleteAll();
   }
 }

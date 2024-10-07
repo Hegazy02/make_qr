@@ -24,7 +24,6 @@ class CreatePdfQrBlocListener extends StatelessWidget {
           GoRouter.of(context).pushNamed(GeneratedQrView.generatedQrView,
               extra: context.read<CreatePdfQrCubit>().fileUrl);
         } else if (state.status == Status.error) {
-          log("Error: ${state.error}");
           context.hideLoading();
           context.showError(state.error.tr());
         }

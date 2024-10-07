@@ -9,10 +9,14 @@ class Translation {
   static const String share = "share";
   static const String language = "language";
   static const String arabic = "arabic";
+  static const String noHistory = "no-history";
   static const String english = "english";
   static const String selectAFile = "select-a-file";
   static const String link = "link";
   static const String edit = "edit";
+  static const String downloading = "downloading";
+  static const String url = "url";
+  static const String noTitle = "no-title";
   static const String fileNotInPDFFormatOrCorrupted =
       "file not in pdf format or corrupted";
   static const String noFileSelected = "no-file-selected";
@@ -34,4 +38,6 @@ class Translation {
   static const String selectAnImage = "select-an-image";
   static const String pressOnImageIconToSelectAnImageFirst =
       "press-on-image-icon-to-select-an-image-first";
+  static const String pressOnFileIconToSelectAnFileFirst =
+      "press-on-file-icon-to-select-an-file-first";
 }

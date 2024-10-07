@@ -6,6 +6,7 @@ import 'package:make_qr/features/history/view/widgets/history_card_widget.dart';
 
 import '../../../core/constants/translation.dart';
 import '../../../core/di/get_it.dart';
+import '../../../core/enums/status_enum.dart';
 import '../../home/view/widgets/custom_stack.dart';
 import '../../home/view/widgets/custom_stack_header.dart';
 import '../repo/history_repo.dart';
@@ -29,21 +30,25 @@ class HistoryView extends StatelessWidget {
             header: CustomStackHeader(
               data: Translation.history.tr(),
             ),
-            child: cubit.savedQrModels.isEmpty
+            child: state.status == Status.loading
                 ? Center(
-                    child: Text(Translation.noHistory.tr(),
+                    child: Text(Translation.downloading.tr(),
                         style: textStyle14Bold))
-                : ListView.separated(
-                    padding: const EdgeInsets.only(top: 8),
-                    itemBuilder: (context, index) => HistoryCardWidget(
-                          qrModel: cubit.savedQrModels[index],
-                          onPressedDelete: () {
-                            cubit.deleteQr(cubit.savedQrModels[index]);
-                          },
-                        ),
-                    separatorBuilder: (context, index) =>
-                        const SizedBox(height: 10),
-                    itemCount: cubit.savedQrModels.length),
+                : cubit.savedQrModels.isEmpty
+                    ? Center(
+                        child: Text(Translation.noHistory.tr(),
+                            style: textStyle14Bold))
+                    : ListView.separated(
+                        padding: const EdgeInsets.only(top: 8),
+                        itemBuilder: (context, index) => HistoryCardWidget(
+                              qrModel: cubit.savedQrModels[index],
+                              onPressedDelete: () {
+                                cubit.deleteQr(cubit.savedQrModels[index]);
+                              },
+                            ),
+                        separatorBuilder: (context, index) =>
+                            const SizedBox(height: 10),
+                        itemCount: cubit.savedQrModels.length),
           );
         }),
       ),

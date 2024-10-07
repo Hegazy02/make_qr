@@ -12,6 +12,7 @@ class HistoryCubit extends Cubit<HistoryState> {
   HistoryCubit(this.historyRepo) : super(const HistoryState());
   List<QrModel> savedQrModels = [];
   getQrModels() async {
+    emit(state.copyWith(status: Status.loading));
     final result = await historyRepo.getQrModels();
     result.fold(
       (error) =>

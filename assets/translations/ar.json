@@ -34,5 +34,6 @@
   "no-file-selected": "لم يتم تحديد ملف",
   "file not in pdf format or corrupted": "الملف ليس في صيغة PDF او به مشكلة",
   "press-on-file-icon-to-select-an-file-first": "اضغط على علامة الملف لتحديد ملف اولا",
-  "no-title": "بدون عنوان"
+  "no-title": "بدون عنوان",
+  "downloading": "تحميل..."
 }

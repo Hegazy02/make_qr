@@ -16,6 +16,7 @@ import '../apis/network_helper.dart';
 import '../helpers/exception_handlers/firebase_exception_handler.dart';
 import '../helpers/exception_handlers/service_exception_handler.dart';
 import '../helpers/files_pickers.dart';
+import '../helpers/qr_locale_storage_service.dart';
 import '../helpers/wifi_scanner.dart';
 
 final getIt = GetIt.instance;
@@ -28,6 +29,8 @@ setupGetIt() {
   getIt.registerLazySingleton<NetworkHelper>(() => NetworkHelper());
   getIt.registerLazySingleton<WifiScanner>(() => WifiScanner());
   getIt.registerLazySingleton<FilePickerService>(() => FilePickerService());
+  getIt.registerLazySingleton<QrLocaleStorageService>(
+      () => QrLocaleStorageService());
 
   // main
   getIt.registerLazySingleton<MainRepoImpl>(

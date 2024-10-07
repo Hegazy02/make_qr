@@ -34,7 +34,7 @@ class HistoryCubit extends Cubit<HistoryState> {
     result.fold(
       (error) =>
           emit(state.copyWith(status: Status.error, error: error.errorMessage)),
-      (r) => emit(state.copyWith(status: Status.success)),
+      (succes) => emit(state.copyWith(status: Status.success)),
     );
   }
 }

@@ -50,14 +50,16 @@
 		<string>en</string>
 		<string>nb</string>
 	</array>
+	<!--  -->
 	<key>NSCameraUsageDescription</key>
 	<string>This app needs camera access to scan QR codes</string>
 
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app needs photos access to get QR code from photo library</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your location to provide better services.</string>
+	<string>This app needs photos access to generate QR code from photo library</string>
+
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>This app needs to store images in the phone gallery to share QR code</string>
+	<!-- <key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to provide better services.</string> -->
 	</dict>
 </plist>

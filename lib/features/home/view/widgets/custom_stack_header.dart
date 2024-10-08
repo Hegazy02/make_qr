@@ -10,9 +10,19 @@ class CustomStackHeader extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(data, style: textStyle16Bold.copyWith(color: Colors.white)),
+          Container(
+            width: 30,
+            height: 30,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(4),
+                image: const DecorationImage(
+                  image: AssetImage("assets/icons/logo.png"),
+                )),
+          ),
+          const SizedBox(width: 5),
+          Text(data, style: textStyle18Bold.copyWith(color: Colors.white)),
+          const Spacer(),
           IconButton(
               onPressed: Scaffold.of(context).openDrawer,
               icon: const Icon(

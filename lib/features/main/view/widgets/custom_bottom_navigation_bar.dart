@@ -44,12 +44,12 @@ class CustomBottomNavigationBar extends StatelessWidget {
   List items = [
     BottomNavigationBarItem(
       icon: Image.asset(
-        'assets/icons/create_black_icon.png',
+        'assets/icons/home_black_icon.png',
         height: 30,
         width: 30,
       ),
       activeIcon: Image.asset(
-        'assets/icons/create_icon.png',
+        'assets/icons/home_icon.png',
         height: 30,
         width: 30,
       ),
@@ -63,13 +63,13 @@ class CustomBottomNavigationBar extends StatelessWidget {
     BottomNavigationBarItem(
       icon: Image.asset(
         'assets/icons/history_black_icon.png',
-        height: 25,
-        width: 25,
+        height: 20,
+        width: 20,
       ),
       activeIcon: Image.asset(
         'assets/icons/history_icon.png',
-        height: 25,
-        width: 25,
+        height: 20,
+        width: 20,
       ),
     ),
   ];

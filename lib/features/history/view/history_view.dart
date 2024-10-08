@@ -39,7 +39,6 @@ class HistoryView extends StatelessWidget {
                         child: Text(Translation.noHistory.tr(),
                             style: textStyle14Bold))
                     : ListView.separated(
-                        padding: const EdgeInsets.only(top: 8),
                         itemBuilder: (context, index) => HistoryCardWidget(
                               qrModel: cubit.savedQrModels[index],
                               onPressedDelete: () {

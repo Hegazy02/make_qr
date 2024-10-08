@@ -31,7 +31,7 @@ class CreatePdfQrCubit extends Cubit<CreatePdfQrState> {
     } else if (this.selectedFile == null && !isClosed) {
       emit(state.copyWith(
           fileStatus: Status.error, error: Translation.noFileSelected));
-    } else {
+    } else if (!isClosed) {
       emit(state.copyWith(fileStatus: Status.success));
     }
   }

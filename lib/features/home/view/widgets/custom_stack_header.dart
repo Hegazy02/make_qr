@@ -14,11 +14,10 @@ class CustomStackHeader extends StatelessWidget {
           Container(
             width: 30,
             height: 30,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4),
-                image: const DecorationImage(
-                  image: AssetImage("assets/icons/logo.png"),
-                )),
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+              image: AssetImage("assets/icons/logo.png"),
+            )),
           ),
           const SizedBox(width: 5),
           Text(data, style: textStyle18Bold.copyWith(color: Colors.white)),

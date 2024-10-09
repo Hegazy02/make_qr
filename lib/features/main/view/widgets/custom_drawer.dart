@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:make_qr/core/constants/translation.dart';
-import 'package:make_qr/core/theme/app_font_styles.dart';
 
 import 'privacy_policies_view.dart';
 

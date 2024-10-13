@@ -16,7 +16,7 @@ TextStyle textStyle12Bold = TextStyle(
   fontWeight: FontWeight.bold,
 );
 TextStyle textStyle12Grey = TextStyle(fontSize: 12.sp, color: appGrey);
-TextStyle textStyle16Bold = TextStyle(
-  fontSize: 16.sp,
+TextStyle textStyle18Bold = TextStyle(
+  fontSize: 18.sp,
   fontWeight: FontWeight.bold,
 );

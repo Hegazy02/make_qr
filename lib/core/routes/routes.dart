@@ -14,6 +14,7 @@ import '../../features/generated_qr/view/generated_qr_view.dart';
 import '../../features/generated_qr/view_model/generated_qr_cubit.dart';
 import '../../features/main/repo/main_repo.dart';
 import '../../features/main/view/main_view.dart';
+import '../../features/main/view/widgets/privacy_policies_view.dart';
 import '../../features/main/view_model/main_cubit.dart';
 import '../../features/scanner/view/scanner_view.dart';
 import '../../features/scanner/view/widgets/pdf_url_viewer.dart';
@@ -79,6 +80,11 @@ class RouterHelper {
         ),
         child: const CreatePdfQrView(),
       ),
+    ),
+    GoRoute(
+      path: PrivacyPoliciesView.privacyPolicies,
+      name: PrivacyPoliciesView.privacyPolicies,
+      builder: (context, state) => const PrivacyPoliciesView(),
     ),
   ]);
 }

@@ -49,7 +49,8 @@ class CustomStack extends StatelessWidget {
               ),
             ),
             child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
                 child: child)),
       ),
       Positioned(

@@ -4,7 +4,7 @@ import 'package:make_qr/core/theme/app_font_styles.dart';
 class CustomStackHeader extends StatelessWidget {
   final String data;
   const CustomStackHeader({super.key, required this.data});
-
+//
   @override
   Widget build(BuildContext context) {
     return Padding(

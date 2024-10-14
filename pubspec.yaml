@@ -44,7 +44,6 @@ dependencies:
   pretty_qr_code: ^3.3.0
   device_info_plus: ^10.1.2
   mobile_scanner: ^5.2.3
-  image_picker: ^1.1.2
   url_launcher: ^6.3.0
   syncfusion_flutter_pdfviewer: ^27.1.50
   wifi_scan: ^0.4.1+1

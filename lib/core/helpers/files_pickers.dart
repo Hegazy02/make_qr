@@ -1,17 +1,19 @@
 import 'dart:developer';
 import 'dart:io';
-import 'package:image_picker/image_picker.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:hl_image_picker/hl_image_picker.dart';
 
 class FilePickerService {
+  final _picker = HLImagePicker();
+
   Future<File?> pickImage() async {
     try {
-      ImagePicker picker = ImagePicker();
-      final pickedFile =
-          await picker.pickImage(source: ImageSource.gallery, imageQuality: 25);
-      if (pickedFile != null) {
-        File imageFile = File(pickedFile.path);
-        return imageFile;
+      final List<HLPickerItem> images = await _picker.openPicker(
+          pickerOptions: const HLPickerOptions(mediaType: MediaType.image));
+      if (images.isNotEmpty) {
+        File file = File(images.first.path);
+        log("file path : ${file.path}");
+        return file;
       } else {
         return null;
       }

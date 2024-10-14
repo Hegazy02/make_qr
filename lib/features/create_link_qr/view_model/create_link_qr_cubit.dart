@@ -13,15 +13,16 @@ class CreateLinkQrCubit extends Cubit<CreateLinkQrState> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   TextEditingController linkController = TextEditingController();
   TextEditingController titleController = TextEditingController();
+  QrModel? qrModel;
   generateQr(BuildContext context) async {
     if (formKey.currentState!.validate()) {
       emit(state.copyWith(status: Status.loading));
-      final QrModel qrModel = QrModel(
+      qrModel = QrModel(
           type: QrType.url,
           image: "",
           data: linkController.text,
           title: titleController.text.isEmpty ? null : titleController.text);
-      await saveQrModel(qrModel);
+      await saveQrModel(qrModel!);
       clearControllers();
 
       emit(state.copyWith(status: Status.success));

@@ -1,8 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:make_qr/core/constants/translation.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
+import '../view_model/scanner_cubit.dart';
 import 'widgets/scanned_barcode_label.dart';
 import 'widgets/scanner_bloc_listener.dart';
 import 'widgets/scanner_button_widgets.dart';
@@ -74,7 +76,7 @@ class _ScannerViewState extends State<ScannerView> {
                   },
                 ),
                 Align(
-                  alignment: Alignment.bottomCenter,
+                  alignment: Alignment.topCenter,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Row(
@@ -84,6 +86,23 @@ class _ScannerViewState extends State<ScannerView> {
                         SwitchCameraButton(controller: controller),
                       ],
                     ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: IconButton(
+                        onPressed: () async {
+                          final Barcode? result = await context
+                              .read<ScannerCubit>()
+                              .scanImage(controller);
+                          await context
+                              .read<ScannerCubit>()
+                              .scanQrCode(result!, context);
+                        },
+                        icon: const Icon(Icons.image_rounded,
+                            size: 34, color: Colors.white)),
                   ),
                 ),
               ],
@@ -113,8 +132,6 @@ class ScannerOverlay extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // TODO: use `Offset.zero & size` instead of Rect.largest
-    // we need to pass the size to the custom paint widget
     final backgroundPath = Path()..addRect(Rect.largest);
 
     final cutoutPath = Path()

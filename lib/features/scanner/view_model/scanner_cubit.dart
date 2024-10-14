@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +10,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../core/di/get_it.dart';
+import '../../../core/helpers/files_pickers.dart';
 import '../../../core/helpers/wifi_scanner.dart';
 import '../view/widgets/pdf_url_viewer.dart';
 
@@ -18,7 +20,7 @@ class ScannerCubit extends Cubit<ScannerState> {
   // final ScannerRepo scannerRepo;
   ScannerCubit() : super(const ScannerInitial());
 
-  runQrCode(Barcode qrCode, BuildContext context) async {
+  scanQrCode(Barcode qrCode, BuildContext context) async {
     log("type ${qrCode.type}");
     log("format ${qrCode.format}");
     log("contactInfo ${qrCode.contactInfo}");
@@ -75,5 +77,17 @@ class ScannerCubit extends Cubit<ScannerState> {
 
       throw "${Translation.couldntLaunch} : $url";
     }
+  }
+
+  Future<Barcode?> scanImage(MobileScannerController controller) async {
+    final File? image = await getIt<FilePickerService>().pickImage();
+    log("image ${image}");
+
+    if (image != null) {
+      final analyzeImage = await controller.analyzeImage(image.path);
+      log("analyzeImage ${analyzeImage?.barcodes.first.rawValue}");
+      return analyzeImage?.barcodes.first;
+    }
+    return null;
   }
 }

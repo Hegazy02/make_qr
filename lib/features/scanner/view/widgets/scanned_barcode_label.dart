@@ -24,7 +24,7 @@ class ScannedBarcodeLabel extends StatelessWidget {
           controller.dispose();
           context
               .read<ScannerCubit>()
-              .runQrCode(scannedBarcodes.first, context);
+              .scanQrCode(scannedBarcodes.first, context);
         }
         return Text(
           Translation.scanSomething.tr(),

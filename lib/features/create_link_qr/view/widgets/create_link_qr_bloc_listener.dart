@@ -19,7 +19,7 @@ class CreateLinkQrBlocListener extends StatelessWidget {
         } else if (state.status == Status.success) {
           context.hideLoading();
           GoRouter.of(context).pushNamed(GeneratedQrView.generatedQrView,
-              extra: context.read<CreateLinkQrCubit>().linkController.text);
+              extra: context.read<CreateLinkQrCubit>().qrModel?.data);
         } else if (state.status == Status.error) {
           context.hideLoading();
           context.showError(state.error!);

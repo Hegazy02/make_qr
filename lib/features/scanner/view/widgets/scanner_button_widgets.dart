@@ -1,6 +1,11 @@
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:make_qr/core/di/get_it.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+
+import '../../../../core/helpers/files_pickers.dart';
 
 class AnalyzeImageFromGalleryButton extends StatelessWidget {
   const AnalyzeImageFromGalleryButton({required this.controller, super.key});
@@ -14,11 +19,8 @@ class AnalyzeImageFromGalleryButton extends StatelessWidget {
       icon: const Icon(Icons.image),
       iconSize: 32.0,
       onPressed: () async {
-        final ImagePicker picker = ImagePicker();
-
-        final XFile? image = await picker.pickImage(
-          source: ImageSource.gallery,
-        );
+        final File? image = await getIt<FilePickerService>().pickImage();
+        log("image $image");
 
         if (image == null) {
           return;

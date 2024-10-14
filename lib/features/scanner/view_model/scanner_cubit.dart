@@ -81,7 +81,6 @@ class ScannerCubit extends Cubit<ScannerState> {
 
   Future<Barcode?> scanImage(MobileScannerController controller) async {
     final File? image = await getIt<FilePickerService>().pickImage();
-    log("image ${image}");
 
     if (image != null) {
       final analyzeImage = await controller.analyzeImage(image.path);

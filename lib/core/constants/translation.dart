@@ -13,6 +13,8 @@ class Translation {
   static const String english = "english";
   static const String selectAFile = "select-a-file";
   static const String link = "link";
+  static const String done = "done";
+  static const String cancel = "cancel";
   static const String developedBy = "developed-by";
   static const String abdelrhmanHegazy = "abdelrhman-hegazy";
   static const String privacyPolicy = "privacy-policy";

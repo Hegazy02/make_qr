@@ -97,9 +97,11 @@ class _ScannerViewState extends State<ScannerView> {
                           final Barcode? result = await context
                               .read<ScannerCubit>()
                               .scanImage(controller);
-                          await context
-                              .read<ScannerCubit>()
-                              .scanQrCode(result!, context);
+                          if (result != null) {
+                            await context
+                                .read<ScannerCubit>()
+                                .scanQrCode(result, context);
+                          }
                         },
                         icon: const Icon(Icons.image_rounded,
                             size: 34, color: Colors.white)),

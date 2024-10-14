@@ -63,6 +63,7 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   flutter_native_splash: ^2.4.1
   flutter_dotenv: ^5.1.0
+  hl_image_picker: ^1.2.16
 
 dev_dependencies:
   flutter_test:

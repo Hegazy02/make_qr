@@ -40,6 +40,7 @@ class HomeView extends StatelessWidget {
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
                   childAspectRatio: 0.9,
                 ),
                 itemBuilder: (context, index) => QrTypeBox(

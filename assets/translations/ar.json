@@ -41,5 +41,8 @@
   "abdelrhman-hegazy": "عبدالرحمن حجازي",
   "developed-by": "طور بواسطة",
   "done": "تم",
-  "cancel": "الغاء"
+  "cancel": "الغاء",
+  "phoneNumber": "رقم الهاتف",
+  "add-phone-number": "اضف رقم الهاتف",
+  "invalid-phone-number": "رقم الهاتف غير صحيح"
 }

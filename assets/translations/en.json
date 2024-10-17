@@ -39,5 +39,10 @@
   "add-title": "Add title",
   "privacy-policy": "Privacy Policy",
   "abdelrhman-hegazy": "Abdelrhman Hegazy",
-  "developed-by": "Developed by"
+  "developed-by": "Developed by",
+  "done": "Done",
+  "cancel": "Cancel",
+  "phoneNumber": "Phone number",
+  "add-phone-number": "Add phone number",
+  "invalid-phone-number": "Invalid phone number"
 }

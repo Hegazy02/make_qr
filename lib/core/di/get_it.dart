@@ -1,8 +1,4 @@
 import 'package:get_it/get_it.dart';
-import 'package:make_qr/features/home/repo/home_repo._impl.dart';
-import 'package:make_qr/features/home/repo/home_repo.dart';
-import 'package:make_qr/features/main/repo/main_repo.dart';
-import 'package:make_qr/features/main/repo/main_repo_impl.dart';
 
 import '../../features/create_image_qr/repo/create_image_qr_repo.dart';
 import '../../features/create_image_qr/repo/create_image_qr_repo_impl.dart';
@@ -10,8 +6,14 @@ import '../../features/create_link_qr/repo/create_link_qr_repo.dart';
 import '../../features/create_link_qr/repo/create_link_qr_repo_impl.dart';
 import '../../features/create_pdf_qr/repo/create_pdf_qr_repo.dart';
 import '../../features/create_pdf_qr/repo/create_pdf_qr_repo_impl.dart';
+import '../../features/create_phone_number_qr/repo/create_phone_number_qr_repo.dart';
+import '../../features/create_phone_number_qr/repo/create_phone_number_qr_repo_impl.dart';
 import '../../features/history/repo/history_repo.dart';
 import '../../features/history/repo/history_repo_impl.dart';
+import '../../features/home/repo/home_repo._impl.dart';
+import '../../features/home/repo/home_repo.dart';
+import '../../features/main/repo/main_repo.dart';
+import '../../features/main/repo/main_repo_impl.dart';
 import '../apis/network_helper.dart';
 import '../helpers/exception_handlers/firebase_exception_handler.dart';
 import '../helpers/exception_handlers/service_exception_handler.dart';
@@ -59,4 +61,10 @@ setupGetIt() {
   getIt.registerLazySingleton<HistoryRepoImpl>(
       () => HistoryRepoImpl(getIt<NetworkHelper>()));
   getIt.registerLazySingleton<HistoryRepo>(() => getIt<HistoryRepoImpl>());
+
+  // create pdf qr
+  getIt.registerLazySingleton<CreatePhoneNumberQrRepoImpl>(
+      () => CreatePhoneNumberQrRepoImpl(getIt<NetworkHelper>()));
+  getIt.registerLazySingleton<CreatePhoneNumberQrRepo>(
+      () => getIt<CreatePhoneNumberQrRepoImpl>());
 }

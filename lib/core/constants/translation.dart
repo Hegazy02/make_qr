@@ -11,8 +11,11 @@ class Translation {
   static const String arabic = "arabic";
   static const String noHistory = "no-history";
   static const String english = "english";
+  static const String addPhoneNumber = "add-phone-number";
   static const String selectAFile = "select-a-file";
   static const String link = "link";
+  static const String done = "done";
+  static const String cancel = "cancel";
   static const String developedBy = "developed-by";
   static const String abdelrhmanHegazy = "abdelrhman-hegazy";
   static const String privacyPolicy = "privacy-policy";
@@ -36,6 +39,7 @@ class Translation {
   static const String createImageQr = "create-image-qr";
   static const String addLink = "add-link";
   static const String invalidLink = "invalid-link";
+  static const String invalidPhoneNumber = "invalid-phone-number";
   static const String great = "great";
   static const String backToHome = "back-to-home";
   static const String image = "image";

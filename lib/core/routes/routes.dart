@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:make_qr/features/create_phone_number_qr/repo/create_phone_number_qr_repo_impl.dart';
+import 'package:make_qr/features/create_phone_number_qr/view_model/create_phone_number_qr_cubit.dart';
 
 import '../../features/create_image_qr/repo/create_image_qr_repo_impl.dart';
 import '../../features/create_image_qr/view/create_image_qr_view.dart';
@@ -10,6 +12,7 @@ import '../../features/create_link_qr/view_model/create_link_qr_cubit.dart';
 import '../../features/create_pdf_qr/repo/create_pdf_qr_repo_impl.dart';
 import '../../features/create_pdf_qr/view/create_pdf_qr_view.dart';
 import '../../features/create_pdf_qr/view_model/create_pdf_qr_cubit.dart';
+import '../../features/create_phone_number_qr/view/create_phone_number_qr_view.dart';
 import '../../features/generated_qr/view/generated_qr_view.dart';
 import '../../features/generated_qr/view_model/generated_qr_cubit.dart';
 import '../../features/main/repo/main_repo.dart';
@@ -79,6 +82,16 @@ class RouterHelper {
           getIt<CreatePdfQrRepoImpl>(),
         ),
         child: const CreatePdfQrView(),
+      ),
+    ),
+    GoRoute(
+      path: CreatePhoneNumberQrView.createPhoneNumberQr,
+      name: CreatePhoneNumberQrView.createPhoneNumberQr,
+      builder: (context, state) => BlocProvider(
+        create: (context) => CreatePhoneNumberQrCubit(
+          getIt<CreatePhoneNumberQrRepoImpl>(),
+        ),
+        child: const CreatePhoneNumberQrView(),
       ),
     ),
     GoRoute(

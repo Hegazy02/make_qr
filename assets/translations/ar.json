@@ -39,5 +39,10 @@
   "add-title": "اضف عنوان",
   "privacy-policy": "سياسة الخصوصية",
   "abdelrhman-hegazy": "عبدالرحمن حجازي",
-  "developed-by": "طور بواسطة"
+  "developed-by": "طور بواسطة",
+  "done": "تم",
+  "cancel": "الغاء",
+  "phoneNumber": "رقم الهاتف",
+  "add-phone-number": "اضف رقم الهاتف",
+  "invalid-phone-number": "رقم الهاتف غير صحيح"
 }

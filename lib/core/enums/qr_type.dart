@@ -1,1 +1,1 @@
-enum QrType { text, url, pdf, image }
+enum QrType { text, url, pdf, image, phoneNumber }

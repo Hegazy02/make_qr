@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:make_qr/core/enums/status_enum.dart';
 import '../../main/model/qr_model.dart';
@@ -19,7 +17,6 @@ class HistoryCubit extends Cubit<HistoryState> {
           emit(state.copyWith(status: Status.error, error: error.errorMessage)),
       (data) {
         savedQrModels = data;
-        log("savedQrModels ${savedQrModels.length}");
         emit(state.copyWith(status: Status.success));
       },
     );
@@ -35,7 +32,7 @@ class HistoryCubit extends Cubit<HistoryState> {
     result.fold(
       (error) =>
           emit(state.copyWith(status: Status.error, error: error.errorMessage)),
-      (succes) => emit(state.copyWith(status: Status.success)),
+      (_) => emit(state.copyWith(status: Status.success)),
     );
   }
 }

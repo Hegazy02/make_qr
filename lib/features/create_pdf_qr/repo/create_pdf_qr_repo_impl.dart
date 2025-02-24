@@ -17,8 +17,7 @@ import 'create_pdf_qr_repo.dart';
 import 'dart:ui';
 
 class CreatePdfQrRepoImpl extends CreatePdfQrRepo {
-  final NetworkHelper _networkHelper;
-  const CreatePdfQrRepoImpl(this._networkHelper);
+  const CreatePdfQrRepoImpl();
 
   @override
   Future<Either<ServiceExceptionHandler, Image>> getPdfThumbnail(

@@ -54,7 +54,7 @@ setupGetIt() {
       () => getIt<CreateImageQrRepoImpl>());
   // create pdf qr
   getIt.registerLazySingleton<CreatePdfQrRepoImpl>(
-      () => CreatePdfQrRepoImpl(getIt<NetworkHelper>()));
+      () => const CreatePdfQrRepoImpl());
   getIt.registerLazySingleton<CreatePdfQrRepo>(
       () => getIt<CreatePdfQrRepoImpl>());
   // History

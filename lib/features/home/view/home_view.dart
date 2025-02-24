@@ -1,16 +1,20 @@
+import 'dart:convert';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_blue/flutter_blue.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_blue/flutter_blue.dart';
+
 import '../../../core/constants/translation.dart';
 import '../../../core/di/get_it.dart';
 import '../../main/model/qr_model.dart';
-import 'widgets/custom_stack_header.dart';
-import 'widgets/qr_type_box.dart';
-
 import '../repo/home_repo.dart';
 import '../view_model/home_cubit.dart';
 import 'widgets/custom_stack.dart';
+import 'widgets/custom_stack_header.dart';
+import 'widgets/qr_type_box.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -59,5 +63,53 @@ class HomeView extends StatelessWidget {
         );
       }),
     );
+  }
+}
+
+class Connect {
+  FlutterBlue flutterBlue = FlutterBlue.instance;
+
+  void scanForDevices() {
+    flutterBlue.startScan(timeout: const Duration(seconds: 4));
+
+    flutterBlue.scanResults.listen((results) {
+      for (ScanResult r in results) {
+        print('${r.device.name} found! rssi: ${r.rssi}');
+        if (r.device.name == 'ESP32_Data_Bridge') {
+          connectToDevice(r.device);
+        }
+      }
+    });
+  }
+
+  void connectToDevice(BluetoothDevice device) async {
+    await device.connect();
+    print('Connected to ${device.name}');
+  }
+
+  void readData(BluetoothDevice device) async {
+    List<BluetoothService> services = await device.discoverServices();
+    services.forEach((service) async {
+      var characteristics = service.characteristics;
+      for (BluetoothCharacteristic c in characteristics) {
+        if (c.properties.read) {
+          var value = await c.read();
+          print('Read value: $value');
+        }
+      }
+    });
+  }
+
+  void writeData(BluetoothDevice device, String data) async {
+    List<BluetoothService> services = await device.discoverServices();
+    services.forEach((service) async {
+      var characteristics = service.characteristics;
+      for (BluetoothCharacteristic c in characteristics) {
+        if (c.properties.write) {
+          await c.write(utf8.encode(data));
+          print('Data written: $data');
+        }
+      }
+    });
   }
 }

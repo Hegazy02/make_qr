@@ -29,14 +29,14 @@ class HomeView extends StatelessWidget {
             data: Translation.createQr.tr(),
           ),
           child: Stack(children: [
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: Opacity(
-                    opacity: 0.3,
-                    child: Image.asset("assets/images/portfolio_qr.jpg")),
-              ),
-            ),
+            // Center(
+            //   child: Padding(
+            //     padding: const EdgeInsets.all(24.0),
+            //     child: Opacity(
+            //         opacity: 0.3,
+            //         child: Image.asset("assets/images/portfolio_qr.jpg")),
+            //   ),
+            // ),
             Column(children: [
               GridView.builder(
                 shrinkWrap: true,
